@@ -181,6 +181,15 @@ struct ContentView: View {
                 }
                 .contentMargins(10)
                 .navigationTitle("Liked")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            DERTDetailScreen()
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                    }
+                }
                 .navigationDestination(for: Listing.self) { listing in
                     ListingDetailView(listing: listing)
                         .navigationTransition(.zoom(sourceID: listing.id, in: transition))
@@ -192,7 +201,6 @@ struct ContentView: View {
                     .zIndex(1)
             }
         }
-        .preferredColorScheme(.dark)
     }
 
     // MARK: Photo grid
@@ -348,7 +356,7 @@ struct ListingCard: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(listing.title)
                         .font(.title3.weight(.medium))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .lineLimit(1)
 
                     Text("\(listing.propertyType) · \(listing.location)")
@@ -372,10 +380,10 @@ struct ListingCard: View {
                 Text(listing.estimatedValue.currency)
             }
             .font(.subheadline)
-            .foregroundStyle(.white.opacity(0.85))
+            .foregroundStyle(.primary)
         }
         .padding(18)
-        .background(Color(white: 0.13), in: RoundedRectangle(cornerRadius: 22))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22))
     }
 }
 
@@ -387,7 +395,7 @@ struct ProgressBar: View {
         GeometryReader { proxy in
             ZStack(alignment: .leading) {
                 Capsule()
-                    .fill(Color(white: 0.28))
+                    .fill(Color(.tertiarySystemFill))
                 Capsule()
                     .fill(Color(hue: 0.72, saturation: 0.4, brightness: 0.85))
                     .frame(width: proxy.size.width * fraction)
@@ -468,7 +476,7 @@ struct ListingDetailView: View {
                 .padding(20)
             }
         }
-        .background(Color.black)
+        .background(Color(.systemGroupedBackground))
         .navigationTitle(listing.propertyType)
         .navigationBarTitleDisplayMode(.inline)
         .task(id: pickerItem) {
@@ -526,7 +534,7 @@ struct ListingDetailView: View {
         }
         .padding(.vertical, 16)
         .frame(maxWidth: .infinity)
-        .background(Color(white: 0.13), in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
     }
 
     private func stat(value: String, label: String, systemImage: String) -> some View {
@@ -545,18 +553,18 @@ struct ListingDetailView: View {
 
     private var divider: some View {
         Rectangle()
-            .fill(Color(white: 0.25))
+            .fill(Color(.separator))
             .frame(width: 1, height: 36)
     }
 
     private var priceSummary: some View {
         VStack(spacing: 12) {
             row(title: "List Price", value: listing.listPrice.currency, emphasized: true)
-            Divider().overlay(Color(white: 0.25))
+            Divider()
             row(title: "Estimated Value", value: listing.estimatedValue.currency, emphasized: false)
         }
         .padding(18)
-        .background(Color(white: 0.13), in: RoundedRectangle(cornerRadius: 16))
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
     }
 
     private func row(title: String, value: String, emphasized: Bool) -> some View {
