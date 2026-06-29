@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/primary.swiftdeps"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Tests/FormWizardTests/FormWizardTests.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/FormWizardTests.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/FormWizardTests.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/FormWizardTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/FormWizardTests.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizardTests.build/FormWizardTests.dia"
+  }
+}

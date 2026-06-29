@@ -1,0 +1,96 @@
+{
+  "": {
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/primary.swiftdeps"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Extensions/String+Validation.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/String+Validation.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/String+Validation.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/String+Validation~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/String+Validation.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/String+Validation.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/ApplianceType.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceType.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceType.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceType~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceType.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceType.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardData.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardData.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardData.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardData~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardData.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardData.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardSubmission.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardSubmission.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardSubmission.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardSubmission~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardSubmission.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardSubmission.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/StepHeader.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/StepHeader.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/StepHeader.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/StepHeader~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/StepHeader.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/StepHeader.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardButton.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardButton.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardButton.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardButton~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardButton.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardButton.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardProgressBar.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardProgressBar.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardProgressBar.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardProgressBar~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardProgressBar.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardProgressBar.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardTextField.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardTextField.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardTextField.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardTextField~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardTextField.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/WizardTextField.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/FormWizardView.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardView.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardView.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardView.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/FormWizardView.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/ApplianceTypeStep.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceTypeStep.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceTypeStep.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceTypeStep~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceTypeStep.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/ApplianceTypeStep.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/DateTimeStep.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/DateTimeStep.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/DateTimeStep.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/DateTimeStep~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/DateTimeStep.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/DateTimeStep.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/PhotoSelectionStep.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/PhotoSelectionStep.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/PhotoSelectionStep.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/PhotoSelectionStep~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/PhotoSelectionStep.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/PhotoSelectionStep.dia"
+  },
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/UserInfoStep.swift": {
+    "dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/UserInfoStep.d",
+    "object": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/UserInfoStep.swift.o",
+    "swiftmodule": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/UserInfoStep~partial.swiftmodule",
+    "swift-dependencies": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/UserInfoStep.swiftdeps",
+    "diagnostics": "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/UserInfoStep.dia"
+  }
+}

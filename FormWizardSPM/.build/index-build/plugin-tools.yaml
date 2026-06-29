@@ -1,0 +1,88 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "FormWizard-arm64-apple-macosx-debug.module": ["<FormWizard-arm64-apple-macosx-debug.module>"]
+  "FormWizardSPMPackageTests-arm64-apple-macosx-debug.module": ["<FormWizardSPMPackageTests-arm64-apple-macosx-debug.module>"]
+  "FormWizardTests-arm64-apple-macosx-debug.module": ["<FormWizardTests-arm64-apple-macosx-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<FormWizard-arm64-apple-macosx-debug.module>"]
+  "test": ["<FormWizard-arm64-apple-macosx-debug.module>","<FormWizardTests-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/Tests/FormWizardTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Extensions/String+Validation.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/ApplianceType.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardData.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardSubmission.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/StepHeader.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardButton.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardProgressBar.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardTextField.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/FormWizardView.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/ApplianceTypeStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/DateTimeStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/PhotoSelectionStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/UserInfoStep.swift"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/sources"]
+    description: "Write auxiliary file /Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/sources"
+
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.derived/runner.swift"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/sources"]
+    description: "Write auxiliary file /Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/sources"
+
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Tests/FormWizardTests/FormWizardTests.swift"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/sources"]
+    description: "Write auxiliary file /Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/sources"
+
+  "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<FormWizard-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizard.swiftmodule"]
+    outputs: ["<FormWizard-arm64-apple-macosx-debug.module>"]
+
+  "<FormWizardSPMPackageTests-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardSPMPackageTests.swiftmodule"]
+    outputs: ["<FormWizardSPMPackageTests-arm64-apple-macosx-debug.module>"]
+
+  "<FormWizardTests-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardTests.swiftmodule"]
+    outputs: ["<FormWizardTests-arm64-apple-macosx-debug.module>"]
+
+  "C.FormWizard-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Extensions/String+Validation.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/ApplianceType.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardData.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Models/FormWizardSubmission.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/StepHeader.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardButton.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardProgressBar.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Components/WizardTextField.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/FormWizardView.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/ApplianceTypeStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/DateTimeStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/PhotoSelectionStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/Views/Steps/UserInfoStep.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/sources"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizard.swiftmodule"]
+    description: "Compiling Swift Module 'FormWizard' (13 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","FormWizard","-emit-dependencies","-emit-module","-emit-module-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizard.swiftmodule","-output-file-map","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/output-file-map.json","-parse-as-library","-incremental","@/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/sources","-I","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-incremental","-enable-batch-mode","-serialize-diagnostics","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizard.build/include/FormWizard-Swift.h","-swift-version","6","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","formwizardspm"]
+
+  "C.FormWizardSPMPackageTests-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.derived/runner.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardTests.swiftmodule","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/sources"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardSPMPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'FormWizardSPMPackageTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","FormWizardSPMPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardSPMPackageTests.swiftmodule","-output-file-map","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/output-file-map.json","-parse-as-library","-incremental","@/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/sources","-I","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-incremental","-enable-batch-mode","-serialize-diagnostics","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardSPMPackageTests.build/include/FormWizardSPMPackageTests-Swift.h","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","formwizardspm"]
+
+  "C.FormWizardTests-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/Tests/FormWizardTests/FormWizardTests.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizard.swiftmodule","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/sources"]
+    outputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardTests.swiftmodule"]
+    description: "Compiling Swift Module 'FormWizardTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","FormWizardTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules/FormWizardTests.swiftmodule","-output-file-map","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/output-file-map.json","-parse-as-library","-incremental","@/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/FormWizardTests.build/sources","-I","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/index-build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","6","-Xfrontend","-experimental-lazy-typecheck","-Xfrontend","-experimental-skip-all-function-bodies","-Xfrontend","-experimental-allow-module-with-compiler-errors","-Xfrontend","-empty-abi-descriptor","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","formwizardspm"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/cwiles/DevProjects/iOS/FormWizardSPM/Sources/FormWizard/","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Tests/FormWizardTests/","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Package.swift","/Users/cwiles/DevProjects/iOS/FormWizardSPM/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

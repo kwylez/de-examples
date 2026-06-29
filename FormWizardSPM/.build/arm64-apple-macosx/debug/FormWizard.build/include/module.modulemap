@@ -1,0 +1,3 @@
+module FormWizard {
+    header "/Users/cwiles/DevProjects/iOS/FormWizardSPM/.build/arm64-apple-macosx/debug/FormWizard.build/include/FormWizard-Swift.h"
+}
