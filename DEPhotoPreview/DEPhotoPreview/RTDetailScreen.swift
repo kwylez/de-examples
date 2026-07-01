@@ -15,29 +15,58 @@ struct RTDetailScreen: View {
     /// Selected images keyed by slot index; a missing key shows the placeholder.
     @State private var images: [Int: Image] = [:]
 
+    /// The slot currently expanded full screen, if any.
+    @State private var expandedSlot: Int?
+
+    /// Drives the matched-geometry expand/collapse between a preview and its
+    /// full-screen copy.
+    @Namespace private var animation
+
     var body: some View {
-        ScrollView {
-            VStack(spacing: 28) {
-                HStack(alignment: .top, spacing: 16) {
-                    ForEach(0..<Self.slotCount, id: \.self) { slot in
-                        RTPhotoSlot(image: imageBinding(for: slot))
+        ZStack {
+            ScrollView {
+                VStack(spacing: 28) {
+                    HStack(alignment: .top, spacing: 16) {
+                        ForEach(0..<Self.slotCount, id: \.self) { slot in
+                            RTPhotoSlot(
+                                slot: slot,
+                                image: imageBinding(for: slot),
+                                isExpanded: expandedSlot == slot,
+                                namespace: animation
+                            ) {
+                                withAnimation(.bouncy) {
+                                    expandedSlot = slot
+                                }
+                            }
+                        }
+                    }
+
+                    RTSafetyCard(model: model)
+
+                    RTCommentCard(model: model)
+
+                    RTHistorySection(model: model)
+                }
+                .padding(20)
+            }
+            .background(Color(.systemGroupedBackground))
+            .navigationTitle("Photos")
+            .navigationBarTitleDisplayMode(.inline)
+            // iOS 27: enables `swipeActions` on the history rows below, which live in
+            // a LazyVStack rather than a List.
+            .swipeActionsContainer()
+            // Hide the navigation bar while a photo is expanded full screen.
+            .toolbarVisibility(expandedSlot == nil ? .automatic : .hidden, for: .navigationBar)
+
+            if let expandedSlot, let image = images[expandedSlot] {
+                RTFullScreenPhoto(slot: expandedSlot, image: image, namespace: animation) {
+                    withAnimation(.bouncy) {
+                        self.expandedSlot = nil
                     }
                 }
-
-                RTSafetyCard(model: model)
-
-                RTCommentCard(model: model)
-
-                RTHistorySection(model: model)
+                .zIndex(1)
             }
-            .padding(20)
         }
-        .background(Color(.systemGroupedBackground))
-        .navigationTitle("Photos")
-        .navigationBarTitleDisplayMode(.inline)
-        // iOS 27: enables `swipeActions` on the history rows below, which live in
-        // a LazyVStack rather than a List.
-        .swipeActionsContainer()
     }
 
     /// A two-way binding into `images` for a given slot, keeping one source of truth.
@@ -116,7 +145,16 @@ final class RTDetailModel {
 /// A single photo slot: a placeholder when empty, or the selected image with
 /// stacked Change/Delete controls when filled.
 private struct RTPhotoSlot: View {
+    let slot: Int
     @Binding var image: Image?
+
+    /// Whether this slot's photo is expanded full screen. While true, the preview
+    /// yields a clear placeholder so the full-screen copy owns the matched id.
+    let isExpanded: Bool
+    let namespace: Namespace.ID
+
+    /// Called when the user taps a filled preview to expand it full screen.
+    let onTap: () -> Void
 
     @State private var pickerItem: PhotosPickerItem?
 
@@ -140,15 +178,7 @@ private struct RTPhotoSlot: View {
 
     private func filled(_ image: Image) -> some View {
         VStack(spacing: 8) {
-            Color.clear
-                .overlay {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                }
-                .clipped()
-                .aspectRatio(3 / 2, contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+            preview(image)
 
             // Stacked so each control spans the full (narrow) slot width.
             VStack(spacing: 8) {
@@ -171,6 +201,23 @@ private struct RTPhotoSlot: View {
             }
             .controlSize(.small)
         }
+    }
+
+    @ViewBuilder
+    private func preview(_ image: Image) -> some View {
+        Group {
+            if isExpanded {
+                // Placeholder keeps the slot's layout while the full-screen copy
+                // owns the matched-geometry id.
+                Color.clear
+            } else {
+                RTSlotImage(image: image)
+                    .matchedGeometryEffect(id: slot, in: namespace)
+                    .onTapGesture(perform: onTap)
+            }
+        }
+        .aspectRatio(3 / 2, contentMode: .fit)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 
     private var placeholder: some View {
@@ -303,6 +350,53 @@ private struct RTHistorySection: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+// MARK: - Slot image
+
+/// Renders a selected photo filling its bounds. Shared by the slot preview and
+/// the full-screen copy so the matched-geometry transition interpolates cleanly.
+private struct RTSlotImage: View {
+    let image: Image
+
+    var body: some View {
+        // Color.clear fixes the layout size to the proposed bounds so the filled
+        // image is clipped to the frame rather than overflowing it.
+        Color.clear
+            .overlay {
+                image
+                    .resizable()
+                    .scaledToFill()
+            }
+            .clipped()
+    }
+}
+
+// MARK: - Full screen preview
+
+/// A full-size view of a selected photo that expands from its slot via a matched
+/// geometry effect, with a button to return to the detail screen.
+private struct RTFullScreenPhoto: View {
+    let slot: Int
+    let image: Image
+    let namespace: Namespace.ID
+    let onClose: () -> Void
+
+    var body: some View {
+        RTSlotImage(image: image)
+            .matchedGeometryEffect(id: slot, in: namespace)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+            .overlay(alignment: .topTrailing) {
+                Button(action: onClose) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title)
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.white, .black.opacity(0.5))
+                        .padding()
+                }
+            }
     }
 }
 
