@@ -1,6 +1,24 @@
 import SwiftUI
 
-struct UserInfoStep: View {
+/// Collects the requester's name, address, email, and phone number.
+public struct UserInfoStep: FormWizardStep {
+    public init() {}
+
+    public var id: String { "userInfo" }
+
+    public func content(data: FormWizardData) -> some View {
+        UserInfoStepView(data: data)
+    }
+
+    public func isValid(data: FormWizardData) -> Bool {
+        !data.name.isBlank &&
+        !data.address.isBlank &&
+        data.email.isValidEmail &&
+        !data.phone.isBlank
+    }
+}
+
+private struct UserInfoStepView: View {
     @Bindable var data: FormWizardData
 
     var body: some View {

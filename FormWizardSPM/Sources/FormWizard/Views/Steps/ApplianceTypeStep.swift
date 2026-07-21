@@ -1,6 +1,22 @@
 import SwiftUI
 
-struct ApplianceTypeStep: View {
+/// Collects the appliance type and any additional comments.
+public struct ApplianceTypeStep: FormWizardStep {
+    public init() {}
+
+    public var id: String { "applianceType" }
+
+    public func content(data: FormWizardData) -> some View {
+        ApplianceTypeStepView(data: data)
+    }
+
+    public func isValid(data: FormWizardData) -> Bool {
+        data.applianceType != nil &&
+        !data.comment.isBlank
+    }
+}
+
+private struct ApplianceTypeStepView: View {
     @Bindable var data: FormWizardData
 
     var body: some View {

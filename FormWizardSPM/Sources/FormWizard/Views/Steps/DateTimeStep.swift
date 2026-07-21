@@ -1,6 +1,17 @@
 import SwiftUI
 
-struct DateTimeStep: View {
+/// Collects the preferred repair date and time.
+public struct DateTimeStep: FormWizardStep {
+    public init() {}
+
+    public var id: String { "dateTime" }
+
+    public func content(data: FormWizardData) -> some View {
+        DateTimeStepView(data: data)
+    }
+}
+
+private struct DateTimeStepView: View {
     @Bindable var data: FormWizardData
 
     private var minimumDate: Date {

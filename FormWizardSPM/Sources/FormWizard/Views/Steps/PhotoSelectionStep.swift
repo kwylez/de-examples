@@ -2,7 +2,22 @@ import SwiftUI
 import UIKit
 import PhotosUI
 
-struct PhotoSelectionStep: View {
+/// Collects up to 3 photos of the appliance.
+public struct PhotoSelectionStep: FormWizardStep {
+    public init() {}
+
+    public var id: String { "photoSelection" }
+
+    public func content(data: FormWizardData) -> some View {
+        PhotoSelectionStepView(data: data)
+    }
+
+    public func isValid(data: FormWizardData) -> Bool {
+        !data.photos.isEmpty
+    }
+}
+
+private struct PhotoSelectionStepView: View {
     @Bindable var data: FormWizardData
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var isLoadingPhotos = false

@@ -1,50 +1,44 @@
 import SwiftUI
 
-/// A 4-step vertical form wizard for scheduling appliance repair appointments.
+/// A vertical, multi-step form wizard.
 ///
-/// Present this view full-screen or in a sheet. The wizard walks the user through:
-/// 1. Personal information
-/// 2. Appliance type & comments
-/// 3. Photo upload (up to 3)
-/// 4. Date & time selection
+/// `FormWizardView` owns navigation, progress, and the Continue/Submit
+/// button chrome. Each step's UI and validation are supplied by you via
+/// `FormWizardStep` conformances, declared with a `@FormWizardStepBuilder`.
+///
+/// Present this view full-screen or in a sheet:
 ///
 /// ```swift
 /// .sheet(isPresented: $showWizard) {
-///     FormWizardView { submission in
-///         print("Submitted:", submission.name)
+///     FormWizardView { data in
+///         print("Submitted:", data.name)
+///     } steps: {
+///         UserInfoStep()
+///         ApplianceTypeStep()
+///         PhotoSelectionStep()
+///         DateTimeStep()
 ///     }
 /// }
 /// ```
 public struct FormWizardView: View {
-    private let onSubmit: (FormWizardSubmission) -> Void
+    private let onSubmit: (FormWizardData) -> Void
+    private let steps: [AnyFormWizardStep]
 
     @State private var data = FormWizardData()
     @State private var currentStep = 0
     @State private var goingForward = true
 
-    private let totalSteps = 4
-
-    public init(onSubmit: @escaping (FormWizardSubmission) -> Void) {
+    @MainActor
+    public init(
+        onSubmit: @escaping (FormWizardData) -> Void,
+        @FormWizardStepBuilder steps: () -> [AnyFormWizardStep]
+    ) {
         self.onSubmit = onSubmit
+        self.steps = steps()
     }
 
     private var canProceed: Bool {
-        switch currentStep {
-        case 0:
-            !data.name.isBlank &&
-            !data.address.isBlank &&
-            data.email.isValidEmail &&
-            !data.phone.isBlank
-        case 1:
-            data.applianceType != nil &&
-            !data.comment.isBlank
-        case 2:
-            !data.photos.isEmpty
-        case 3:
-            true
-        default:
-            false
-        }
+        steps[currentStep].isValid(data: data)
     }
 
     private var stepTransition: AnyTransition {
@@ -64,27 +58,14 @@ public struct FormWizardView: View {
 
                 Divider()
 
-                WizardProgressBar(currentStep: currentStep, totalSteps: totalSteps)
+                WizardProgressBar(currentStep: currentStep, totalSteps: steps.count)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 16)
 
                 ZStack {
-                    switch currentStep {
-                    case 0:
-                        UserInfoStep(data: data)
-                            .transition(stepTransition)
-                    case 1:
-                        ApplianceTypeStep(data: data)
-                            .transition(stepTransition)
-                    case 2:
-                        PhotoSelectionStep(data: data)
-                            .transition(stepTransition)
-                    case 3:
-                        DateTimeStep(data: data)
-                            .transition(stepTransition)
-                    default:
-                        EmptyView()
-                    }
+                    steps[currentStep].content(data: data)
+                        .id(steps[currentStep].id)
+                        .transition(stepTransition)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .clipped()
@@ -92,7 +73,7 @@ public struct FormWizardView: View {
                 Divider()
 
                 WizardButton(
-                    title: currentStep == totalSteps - 1 ? "Submit" : "Continue",
+                    title: currentStep == steps.count - 1 ? "Submit" : "Continue",
                     isEnabled: canProceed,
                     action: handleAction
                 )
@@ -133,10 +114,10 @@ public struct FormWizardView: View {
     }
 
     private func handleAction() {
-        if currentStep < totalSteps - 1 {
+        if currentStep < steps.count - 1 {
             navigate(forward: true)
         } else {
-            submit()
+            onSubmit(data)
         }
     }
 
@@ -146,24 +127,15 @@ public struct FormWizardView: View {
             currentStep += forward ? 1 : -1
         }
     }
-
-    private func submit() {
-        guard let applianceType = data.applianceType else { return }
-        onSubmit(FormWizardSubmission(
-            name: data.name,
-            address: data.address,
-            email: data.email,
-            phone: data.phone,
-            applianceType: applianceType,
-            comment: data.comment,
-            photos: data.photos,
-            scheduledDateTime: data.scheduledDateTime
-        ))
-    }
 }
 
 #Preview {
-    FormWizardView { submission in
-        print("Submitted by \(submission.name) — \(submission.applianceType.rawValue) on \(submission.scheduledDateTime)")
+    FormWizardView { data in
+        print("Submitted by \(data.name)")
+    } steps: {
+        UserInfoStep()
+        ApplianceTypeStep()
+        PhotoSelectionStep()
+        DateTimeStep()
     }
 }
